@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CylinderShape" id=1]
+radius = 0.198597
+height = 0.0469487
+
+[node name="Spatial" type="Area"]
+
+[node name="CSGCombiner" type="CSGCombiner" parent="."]
+
+[node name="CSGCylinder" type="CSGCylinder" parent="CSGCombiner"]
+radius = 0.196419
+height = 0.0420779
+sides = 12
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
