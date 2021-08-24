@@ -14,7 +14,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="DHAKA GAME"
+config/name="DHAKA GAME - B2"
 config/icon="res://dhaka_game_studio_logo.png"
 
 [display]

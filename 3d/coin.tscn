@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://coin.gd" type="Script" id=1]
 
 [sub_resource type="CylinderShape" id=1]
 radius = 0.198597
 height = 0.0469487
 
-[node name="Spatial" type="Area"]
+[node name="coin" type="Area"]
+script = ExtResource( 1 )
 
 [node name="CSGCombiner" type="CSGCombiner" parent="."]
 
@@ -15,3 +18,7 @@ sides = 12
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://dark_material.tres" type="Material" id=1]
 [ext_resource path="res://red_material.tres" type="Material" id=2]
 [ext_resource path="res://player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://coin.tscn" type="PackedScene" id=4]
 
 [node name="world" type="Spatial"]
 
@@ -27,7 +28,7 @@ width = 6.0
 material = ExtResource( 1 )
 
 [node name="column_sub_cylinder2" type="CSGCylinder" parent="CSGCombiner"]
-transform = Transform( -5.68248e-08, -1.3, 0, 1, -4.37114e-08, 0, 0, 0, 0.8, 0, 1.12545, 2 )
+transform = Transform( -5.68248e-08, -1.3, 0, 1, -4.37114e-08, 0, 0, 0, 0.8, 0.0318617, 1.14366, 2 )
 use_in_baked_light = true
 operation = 2
 height = 6.0
@@ -59,7 +60,7 @@ depth = 6.0
 material = ExtResource( 1 )
 
 [node name="wall_sub_box" type="CSGBox" parent="CSGCombiner"]
-transform = Transform( 1.44, 0, 0, 0, 1, 0, 0, 0, 0.9, 0, 1.7, 6 )
+transform = Transform( 1.44, 0, 0, 0, 1, 0, 0, 0, 0.9, 0.0955851, 1.73186, 6 )
 operation = 2
 width = 6.0
 height = 4.0
@@ -73,7 +74,7 @@ height = 10.0
 material = ExtResource( 1 )
 
 [node name="wall_sub_gate" type="CSGCylinder" parent="CSGCombiner"]
-transform = Transform( 1.71962e-15, 5.24537e-08, 0.9, 0.9, -5.24537e-08, 0, 3.93403e-08, 1.2, -3.93403e-08, 0, 1.4031, 5 )
+transform = Transform( 1.71962e-15, 5.24537e-08, 0.9, 0.9, -5.24537e-08, 0, 3.93403e-08, 1.2, -3.93403e-08, 0.181458, 0.378393, 5 )
 operation = 2
 radius = 2.0
 height = 4.0
@@ -149,3 +150,6 @@ transform = Transform( 0.847666, -0.36193, -0.387903, 0.13176, -0.564634, 0.8147
 shadow_enabled = true
 
 [node name="player" parent="." instance=ExtResource( 3 )]
+
+[node name="coin" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.678047, -0.0134386, 0.734896, 0.00911285, 0.99991, 0.00987688, -0.734962, 0, 0.678108, -1.07203, 0.509405, -0.167067 )

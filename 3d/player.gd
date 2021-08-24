@@ -3,7 +3,7 @@ extends KinematicBody
 var direction = Vector3.FORWARD
 var velocity = Vector3.ZERO
 var acceleration = 10
-var speed = 5
+var speed = 4
 var y_velocity = 0
 var gravity = 20
 var angular_acceleration = 7
