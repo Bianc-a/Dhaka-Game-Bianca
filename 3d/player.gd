@@ -36,3 +36,7 @@ func _physics_process(delta):
 	
 	velocity = lerp(velocity, speed * direction, delta * acceleration)
 	move_and_slide(velocity + Vector3.DOWN * y_velocity, Vector3.UP)
+
+
+#func _on_Timer_timeout():
+	

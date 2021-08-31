@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://dark_material.tres" type="Material" id=1]
 [ext_resource path="res://red_material.tres" type="Material" id=2]
 [ext_resource path="res://player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://coin.tscn" type="PackedScene" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://CoinCount.gd" type="Script" id=6]
+[ext_resource path="res://save.gd" type="Script" id=7]
 
 [node name="world" type="Spatial"]
+script = ExtResource( 7 )
 
 [node name="CSGCombiner" type="CSGCombiner" parent="."]
 use_collision = true
@@ -151,5 +155,37 @@ shadow_enabled = true
 
 [node name="player" parent="." instance=ExtResource( 3 )]
 
-[node name="coin" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.678047, -0.0134386, 0.734896, 0.00911285, 0.99991, 0.00987688, -0.734962, 0, 0.678108, -1.07203, 0.509405, -0.167067 )
+[node name="Control" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 597.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Control"]
+position = Vector2( 907.218, 39.598 )
+scale = Vector2( 0.845322, 0.867417 )
+texture = ExtResource( 5 )
+
+[node name="CoinCount" type="Label" parent="Control" groups=[
+"persist",
+]]
+margin_left = 950.0
+margin_top = 34.0
+margin_right = 1009.0
+margin_bottom = 54.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Coins" type="Spatial" parent="."]
+script = ExtResource( 7 )
+
+[node name="coin" parent="Coins" groups=[
+"persist",
+] instance=ExtResource( 4 )]
+transform = Transform( 0.678047, -0.0134386, 0.734896, 0.00911285, 0.99991, 0.00987688, -0.734962, 0, 0.678108, -1.07203, 0.509405, -0.415042 )
+
+[connection signal="CoinCollected" from="Coins/coin" to="Control/CoinCount" method="_on_coin_CoinCollected"]
+[connection signal="body_entered" from="Coins/coin" to="Coins/coin" method="_on_coin_body_entered"]
